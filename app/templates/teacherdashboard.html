@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		-<meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
+		<link rel="stylesheet" href="../static/style.css" />
+		<title>Online Examiner</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="welcome">
+				<h3> Teacher Dashboard </h3>
+			</div>
+			{%if score%}
+				{{score}}
+			{%endif%}
+			{%if exam%}
+				{{exam}}
+			{%endif%}
+            {% if message%}
+				Success, {{message}}
+			{% endif%}
+            {% if login%}
+				Logged in as {{login}}
+			{% endif%}
+			<form action="/createexam" method="POST">
+				<div class="form-group">
+					<input type="submit" value="Create Exam"> 
+				</div>
+			</form>
+            <form action="/editexamselection" method="POST">
+                <div class="form-group">
+                    <input type="submit" value="Edit Exam"> 
+                </div> 
+            </form>
+            <form action="/deleteexamselection" method="POST">
+                <div class="form-group">
+                    <input type="submit" value="Delete Exam"> 
+                </div> 
+            </form>
+            <form action="/viewstatistics" method="POST">
+                <div class="form-group">
+                    <input type="submit" value="View Statistics"> 
+                </div> 
+            </form>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <input type="submit" value="Log out"> 
+                </div> 
+            </form>
+		</div>
+	</body>
+</html>

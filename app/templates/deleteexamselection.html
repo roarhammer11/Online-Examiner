@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
+		<link rel="stylesheet" href="../static/style.css" />
+		<title>Online Examiner</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="welcome">
+				<h3> Delete Exam </h3>
+			</div>
+			<form action="/deleteexamsubmission" method="POST">
+				<table>
+					<tr>
+						<th>Select question</th>
+					</tr>
+					<tr>
+						<td>		
+							{% if questionarray %}
+							{%for i in range(0, len)%}
+								<input type = "radio"  id = {{questionarray[i]}} name = "questions" value = "{{questionarray[i]}}"required>
+								<label for = {{questionarray[i]}}>{{questionarray[i]}} </label><br>
+							{%endfor%}
+							{% endif %}
+							<input type="submit" value="Submit" class="btn" />	
+						</td>
+					</tr>
+				</table>
+			</form>
+			<div class="dashboard">
+                <a href="{{url_for('teacherDashboard')}}">Dashboard</a>
+            </div>          
+		</div>
+	</body>
+</html>
